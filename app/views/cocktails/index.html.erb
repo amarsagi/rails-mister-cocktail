@@ -1,0 +1,24 @@
+<div class="home-banner">
+  <h1>Mister Cocktail</h1>
+  <h2>Build your very own Cocktail!</h2>
+</div>
+
+
+<div class="container">
+  <div class="row no-gutters">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="cocktail-card">
+          <div class="card-img" style= "background-image:url('<%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>')"></div>
+          <div class="cocktail-card-body">
+            <div class="card_title_flex">
+              <h5><%= cocktail.name.capitalize %></h5>
+            </div>
+            <%= link_to "Taste it", cocktail_path(cocktail), class: "btn btn-flat" %>
+           <%= link_to "Delete it", cocktail_path(cocktail), method: :delete, data: { confirm: "Are you sure you want to delete this cocktail?" }, class: "btn btn-flat" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
