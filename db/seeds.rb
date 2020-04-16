@@ -26,30 +26,9 @@ end
 
 puts "Finished seeding! You now have #{Ingredient.count} ingredients"
 
-file = URI.open('https://res.cloudinary.com/djdwgio05/image/upload/v1585672007/sob_ojcxt4.jpg')
-cocktail = Cocktail.new(name: 'Mojito')
+file = URI.open(https://res.cloudinary.com/amarsagi/image/upload/v1587039077/Mister%20Cocktails/Seed%20Photos/cocktail2_cxl6xi.jpg)
+cocktail = Cocktail.new(title: 'NES', body: "A great console")
 cocktail.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-cocktail.save
-
-file = URI.open('https://res.cloudinary.com/djdwgio05/image/upload/v1585672008/old_fash_ziepwb.jpg')
-cocktail = Cocktail.new(name: 'Old Fashioned')
-cocktail.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-cocktail.save
-
-file = URI.open('https://res.cloudinary.com/djdwgio05/image/upload/v1585672007/sob_ojcxt4.jpg')
-cocktail = Cocktail.new(name: 'Sex on the Beach')
-cocktail.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-cocktail.save
-
-file = URI.open('https://res.cloudinary.com/djdwgio05/image/upload/v1585672007/spritz_l75fnq.jpg')
-cocktail = Cocktail.new(name: 'Spritz')
-cocktail.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-cocktail.save
-
-file = URI.open('https://res.cloudinary.com/djdwgio05/image/upload/v1585672007/mimosa_j4kphr.jpg')
-cocktail = Cocktail.new(name: 'Mimosa')
-cocktail.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-cocktail.save
 
 Dose.create(description: '40ml', cocktail: Cocktail.find_by(name: "Mojito"), ingredient: Ingredient.find_by(name: "Spiced rum"))
 Dose.create(description: '2 leaves', cocktail: Cocktail.find_by(name: "Mojito"), ingredient: Ingredient.find_by(name: "Lime"))

@@ -1,15 +1,27 @@
-<div class="home-banner">
-  <h1>Mister Cocktail</h1>
-  <h2>Build your very own Cocktail!</h2>
+<div class="home-banner" >
+  <h1 id=title1>Mister Cocktail</h1>
+  <h2 id=title2>Build your very own Cocktail!</h2>
 </div>
 
 
 <div class="container">
+    <h1 id="title">Mister<strong></h1>
+    <h1 id="subtitle">Cocktails<strong></h1>
+
+      <p><span id="banner-typed-text"></span></p>
+  </div>
+</div>
+<div class="container">
   <div class="row no-gutters">
     <% @cocktails.each do |cocktail| %>
       <div class="col-12 col-sm-6 col-md-4">
+      	<% if cocktail.photo.attached? %>
+          <% background_url = cl_image_path cocktail.photo.key, width: 400, height: 500, crop: :fill %>
+        <% else %>
+          <% background_url = 'https://source.unsplash.com/500x400/?cocktail' %>
+        <% end %>
         <div class="cocktail-card">
-          <div class="card-img" style= "background-image:url('<%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>')"></div>
+          <div class="card-img" style= "background-image:url('<%= background_url %>')"></div>
           <div class="cocktail-card-body">
             <div class="card_title_flex">
               <h5><%= cocktail.name.capitalize %></h5>
@@ -22,3 +34,4 @@
     <% end %>
   </div>
 </div>
+
